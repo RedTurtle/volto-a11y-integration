@@ -1,0 +1,70 @@
+{
+  "git": {
+    "tagName": "v${version}",
+    "commitMessage": "chore: release v${version}"
+  },
+  "npm": {
+    "publish": true
+  },
+  "github": {
+    "release": true,
+    "releaseName": "${version}"
+  },
+  "hooks": {
+    "before:init": ["yarn install --immutable", "yarn i18n"]
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          },
+          {
+            "type": "refactor",
+            "section": "Changes"
+          },
+          {
+            "type": "chore",
+            "section": "Maintenance"
+          },
+          {
+            "type": "ci",
+            "section": "Maintenance"
+          },
+          {
+            "type": "perf",
+            "section": "Maintenance"
+          },
+          {
+            "type": "build",
+            "section": "Maintenance"
+          },
+          {
+            "type": "style",
+            "section": "Maintenance"
+          },
+          {
+            "type": "revert",
+            "section": "Bug Fixes"
+          },
+          {
+            "type": "test",
+            "section": "Maintenance"
+          },
+          {
+            "type": "docs",
+            "section": "Documentation"
+          }
+        ]
+      }
+    }
+  }
+}
